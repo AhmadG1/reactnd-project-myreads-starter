@@ -3,6 +3,7 @@ import Add from "../Components/Add";
 import BookShelf from "../Components/BookShelf";
 import { getAll } from "../BooksAPI";
 
+
 class Home extends Component {
   async componentDidMount() {
     try {
@@ -21,10 +22,19 @@ class Home extends Component {
         <div className="list-books-content">
           <BookShelf
             title="Currently Reading"
-            books={this.props.currenlyReading}
+            books={this.props.currentlyReading}
+            moveBook={this.props.moveBook}
           />
-          <BookShelf title="Want to Read" books={this.props.wantToRead} />
-          <BookShelf title="Read" books={this.props.read} />
+          <BookShelf
+            title="Want to Read"
+            books={this.props.wantToRead}
+            moveBook={this.props.moveBook}
+          />
+          <BookShelf
+            title="Read"
+            books={this.props.read}
+            moveBook={this.props.moveBook}
+          />
         </div>
         <Add />
       </div>

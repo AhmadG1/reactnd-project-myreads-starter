@@ -3,13 +3,13 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./Views/Home";
 import Search from "./Views/Search";
-import Source, { MyContext } from "./Source/";
+import Provider, { MyContext } from "./Provider/";
 
 class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Source>
+        <Provider>
           <Switch>
             <Route
               exact
@@ -30,7 +30,7 @@ class BooksApp extends React.Component {
               )}
             />
           </Switch>
-        </Source>
+        </Provider>
       </div>
     );
   }

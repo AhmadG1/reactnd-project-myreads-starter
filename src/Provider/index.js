@@ -17,13 +17,26 @@ class index extends Component {
         const wantToRead = books.filter((book) => book.shelf === "wantToRead");
         this.setState({ books, currentlyReading, read, wantToRead });
       },
+      moveBook: (book, shelf, newShelf) => {
+        console.log(newShelf);
+        const newBooks = this.state.books.map((allBooks) => {
+          const foundID = allShelf[newShelf].find(
+            (bookID) => bookID === allBooks.id
+          );
+          if (foundID) {
+            allBooks.shelf = newShelf;
+          }
+          return allBooks;
+        });
+        this.state.addBooks(newBooks);
+      },
     };
   }
   render() {
     return (
-      <MyContext.Source value={{ ...this.state }}>
+      <MyContext.Provider value={{ ...this.state }}>
         {this.props.children}
-      </MyContext.Source>
+      </MyContext.Provider>
     );
   }
 }
